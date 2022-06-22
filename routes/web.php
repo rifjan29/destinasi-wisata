@@ -22,7 +22,7 @@ Route::get('event',[Frontend\EventController::class,'index'])->name('event');
 Route::get('event/{slug}',[Frontend\EventController::class,'detail'])->name('event.detail');
 Route::get('tourist-map',[Frontend\PetaWisataController::class,'index'])->name('peta-wisata');
 Route::get('tourist-map/{slug}',[Frontend\PetaWisataController::class,'detail'])->name('peta-wisata.detail');
-Route::get('about-us',[Frontend\TentangKamiController::class,'index'])->name('tentang-kami');
+// Route::get('about-us',[Frontend\TentangKamiController::class,'index'])->name('tentang-kami');
 
 // backend
 Route::middleware(['auth'])->group(function () {
@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('destinasi', Backend\DestinasiController::class);
         Route::resource('category-destinasi', Backend\CategoryDestinasiController::class);
         Route::resource('peta-wisata', Backend\PetaWisataController::class);
-        Route::get('tentang-kami', Frontend\TentangKamiController::class,'index')->name('backoffice.tentang-kami');
+        // Route::get('tentang-kami', Frontend\TentangKamiController::class,'index')->name('backoffice.tentang-kami');
     });
 });
 require __DIR__.'/auth.php';
