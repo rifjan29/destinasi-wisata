@@ -15,6 +15,12 @@ class CreateMapsTable extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_map_id')->constrained('kategori_map');
+            $table->string('name');
+            $table->string('slug');
+            $table->text('maps');
+            $table->text('keterangan');
+            $table->boolean('status',true);
             $table->timestamps();
         });
     }

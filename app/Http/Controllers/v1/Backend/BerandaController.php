@@ -7,5 +7,16 @@ use Illuminate\Http\Request;
 
 class BerandaController extends Controller
 {
-    //
+    public $param;
+
+    public function __construct()
+    {
+        $this->param['parentMenu'] = 'Backoffice';
+        $this->param['current'] = 'Dashboard';
+    }
+    public function index()
+    {
+        $this->param['pageTitle'] = 'Dashboard';
+        return view('dashboard',$this->param);
+    }
 }

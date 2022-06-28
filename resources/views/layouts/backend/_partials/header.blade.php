@@ -85,7 +85,7 @@
                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                         </div>
                         <div class="content">
-                            <a class="js-acc-btn" href="#">john doe</a>
+                            <a class="js-acc-btn" href="#">{{ ucwords(Auth::user()->name) }}</a>
                         </div>
                         <div class="account-dropdown js-dropdown">
                             <div class="info clearfix">
@@ -96,9 +96,9 @@
                                 </div>
                                 <div class="content">
                                     <h5 class="name">
-                                        <a href="#">john doe</a>
+                                        <a href="#">{{ ucwords(Auth::user()->name) }}</a>
                                     </h5>
-                                    <span class="email">johndoe@example.com</span>
+                                    <span class="email">{{ Auth::user()->email }}</span>
                                 </div>
                             </div>
                             <div class="account-dropdown__footer">
@@ -203,7 +203,7 @@
                     <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                 </div>
                 <div class="content">
-                    <a class="js-acc-btn" href="#">john doe</a>
+                    <a class="js-acc-btn" href="#">{{ ucwords(Auth::user()->name) }}</a>
                 </div>
                 <div class="account-dropdown js-dropdown">
                     <div class="info clearfix">
@@ -214,9 +214,9 @@
                         </div>
                         <div class="content">
                             <h5 class="name">
-                                <a href="#">john doe</a>
+                                <a href="#">{{ ucwords(Auth::user()->name) }}</a>
                             </h5>
-                            <span class="email">johndoe@example.com</span>
+                            <span class="email">{{ Auth::user()->email }}</span>
                         </div>
                     </div>
                     <div class="account-dropdown__footer">

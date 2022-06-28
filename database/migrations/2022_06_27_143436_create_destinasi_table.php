@@ -15,6 +15,16 @@ class CreateDestinasiTable extends Migration
     {
         Schema::create('destinasi', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_destinasi_id')->constrained('kategori_destinasi');
+            $table->string('title');
+            $table->string('slug');
+            $table->binary('deskripsi');
+            $table->string('photos')->nullable();
+            $table->text('alamat');
+            $table->tinyInteger('kab_id');
+            $table->tinyInteger('kec_id');
+            $table->tinyInteger('desa_id');
+            $table->boolean('status',true);
             $table->timestamps();
         });
     }

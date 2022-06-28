@@ -15,11 +15,13 @@ class CreateEventTable extends Migration
     {
         Schema::create('event', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_event_id')->nullable()->constrained('kategori_event');
+            $table->foreignId('kategori_event_id')->constrained('kategori_event');
             $table->string('title');
             $table->string('slug');
-            // $table->('deskripsi');
-            $table->
+            $table->binary('deskripsi');
+            $table->string('photos')->nullable();
+            $table->date('waktu');
+            $table->boolean('status',true);
             $table->timestamps();
         });
     }

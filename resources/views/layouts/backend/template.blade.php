@@ -22,12 +22,13 @@
 
         <!-- PAGE CONTENT-->
         <div class="page-content--bgf7">
+            @include('layouts.backend._partials.breadcumb')
+
             @yield('content')
 
             @include('layouts.backend._partials.footer')
         </div>
     </div>
-
     <!-- Jquery JS-->
     <script src="{{ asset('') }}backend/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
