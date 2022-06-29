@@ -14,12 +14,13 @@
                         </div>
                         <div class="card-body">
                             <div class="p-4">
-                                <form action="{{ route('category-events.store') }}" method="POST">
+                                <form action="{{ route('category-maps.update',$data->id) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
                                             <label for="">Nama</label>
-                                            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Kategori">
+                                            <input type="text" name="nama" value="{{ old('name', $data->name) }}" class="form-control @error('nama') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Kategori">
                                             @error('nama')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}.
@@ -28,7 +29,7 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="">Keterangan</label>
-                                            <textarea name="keterangan" id="keterangan" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Masukkan Keterangan" cols="30" rows="10"></textarea>
+                                            <textarea name="keterangan" id="keterangan" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Masukkan Keterangan" cols="30" rows="10">{{ old('keterangan',$data->keterangan) }}</textarea>
                                             @error('keterangan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}.
@@ -38,13 +39,13 @@
                                         <div class="col-md-12 mb-3 ">
                                             <label for="">Pilihan Bahasa</label>
                                             <div class="form-check">
-                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios1" value="id">
+                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios1" value="id" {{ $data->status == 'id' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios1">
                                                   Indonesia
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios2" value="en">
+                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios2" value="en" {{ $data->status == 'en' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="exampleRadios2">
                                                   Inggris
                                                 </label>

@@ -10,9 +10,9 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <strong>Category Events</strong>
+                                <strong>{{ ucwords(str_replace('-',' ',Request::segment(2))) }}</strong>
                                 <div>
-                                    <a href="{{ route('category-events.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+                                    <a href="{{ route('events.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
                                 </div>
                             </div>
                         </div>
@@ -22,9 +22,11 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Nama</th>
-                                            <th>Keterangan</th>
+                                            <th>Foto</th>
+                                            <th>Judul</th>
+                                            <th>Deskripsi</th>
                                             <th>Bahasa</th>
+                                            <th>Waktu</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -32,15 +34,19 @@
                                         @forelse ($data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ ucwords( $item->name ) }}</td>
-                                                <td>{{ ucwords( $item->keterangan ) }}</td>
+                                                <td>
+                                                    <img src="" alt="">
+                                                </td>
+                                                <td>{{ ucwords( $item->title ) }}</td>
+                                                <td>{{ ucwords( $item->deskripsi ) }}</td>
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>
+                                                <td>{{ date('Y-m-d',$item->waktu) }}</td>
                                                 <td>
                                                     <div class="table-data-feature d-flex justify-content-start">
-                                                        <a href="{{ route('category-events.edit',$item->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="{{ route('events.edit',$item->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </a>
-                                                        <form action="{{ route('category-events.destroy',$item->id) }}" method="POST">
+                                                        <form action="{{ route('events.destroy',$item->id) }}" method="POST">
                                                             @method('delete')
                                                             @csrf
                                                             <button type="submit" onclick="return confirm('Hapus Data ?')" class="item" id="delete" data-id="{{ $item->id }}" data-toggle="modal" data-placement="top" title="Delete" data-target="#exampleModal">
@@ -52,7 +58,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="4" align="center" >Tidak ada data</td>
+                                                <td colspan="7" align="center" >Tidak ada data</td>
                                             </tr>
                                         @endforelse
 

@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="p-4">
-                                <form action="{{ route('category-events.store') }}" method="POST">
+                                <form action="{{ route('category-maps.store') }}" method="POST">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">

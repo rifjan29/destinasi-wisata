@@ -18,6 +18,7 @@ class CreateKategoriMapTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('keterangan');
+            $table->enum('status',['id','en']);
             $table->timestamps();
         });
     }

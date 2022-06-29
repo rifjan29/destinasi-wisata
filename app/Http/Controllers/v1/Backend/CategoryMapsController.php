@@ -3,23 +3,20 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryEvent;
+use App\Models\KategoriMaps;
 use Exception;
-use Facade\Ignition\QueryRecorder\Query;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
-class CategoryEventController extends Controller
+class CategoryMapsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $param;
-
     public function __construct()
     {
         $this->param['parentMenu'] = 'Dashboard';
@@ -30,10 +27,10 @@ class CategoryEventController extends Controller
     public function index()
     {
         $this->param['pageTitle'] = 'Semua Data';
-        $this->param['routeList'] = 'category-events.index';
-        $this->param['data'] = CategoryEvent::all();
+        $this->param['routeList'] = 'category-maps.index';
+        $this->param['data'] = KategoriMaps::all();
 
-        return view('backend.category-event.index',$this->param);
+        return view('backend.category-maps.index',$this->param);
     }
 
     /**
@@ -44,9 +41,9 @@ class CategoryEventController extends Controller
     public function create()
     {
         $this->param['pageTitle'] = 'Tambah Data';
-        $this->param['routeList'] = 'category-events.index';
+        $this->param['routeList'] = 'category-maps.index';
 
-        return view('backend.category-event.create',$this->param);
+        return view('backend.category-maps.create',$this->param);
     }
 
     /**
@@ -65,17 +62,18 @@ class CategoryEventController extends Controller
             $this->param['pageTitle'] = 'Tambah Data';
             $this->param['routeList'] = 'category-events.index';
             $slug = Str::slug($request->get('nama'));
-            $add = new CategoryEvent;
+            $add = new KategoriMaps;
             $add->name = $request->get('nama');
             $add->slug = $slug;
             $add->keterangan = $request->get('keterangan');
             $add->status = $request->get('lang');
             $add->save();
-            return redirect()->route('category-events.index')->withStatus('Berhasil menyimpan data.');
+            return redirect()->route('category-maps.index')->withStatus('Berhasil menyimpan data.');
         } catch (Exception $e) {
             return redirect()->back()->withError('Terjadi kesalahan.');
         } catch (QueryException $e) {
             return redirect()->back()->withError('Terjadi kesalahan.');
+
         }
     }
 
@@ -99,9 +97,9 @@ class CategoryEventController extends Controller
     public function edit($id)
     {
         $this->param['pageTitle'] = 'Edit Data';
-        $this->param['routeList'] = 'category-events.index';
-        $this->param['data'] = CategoryEvent::find($id);
-        return view('backend.category-event.edit',$this->param);
+        $this->param['routeList'] = 'category-maps.index';
+        $this->param['data'] = KategoriMaps::find($id);
+        return view('backend.category-maps.edit',$this->param);
     }
 
     /**
@@ -121,13 +119,13 @@ class CategoryEventController extends Controller
             $this->param['pageTitle'] = 'Tambah Data';
             $this->param['routeList'] = 'category-events.index';
             $slug = Str::slug($request->get('nama'));
-            $update = CategoryEvent::findOrFail($id);
+            $update = KategoriMaps::findOrFail($id);
             $update->name = $request->get('nama');
             $update->slug = $slug;
             $update->keterangan = $request->get('keterangan');
             $update->status = $request->get('lang');
             $update->save();
-            return redirect()->route('category-events.index')->withStatus('Berhasil mengganti data.');
+            return redirect()->route('category-maps.index')->withStatus('Berhasil mengganti data.');
         } catch (Exception $e) {
             return redirect()->back()->withError('Terjadi kesalahan.');
         } catch (QueryException $e) {
@@ -141,12 +139,12 @@ class CategoryEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy($id)
     {
         try {
-            $delete = CategoryEvent::findOrFail($id);
+            $delete = KategoriMaps::findOrFail($id);
             $delete->delete();
-            return redirect()->route('category-events.index')->withStatus('Berhasil Menghapus Data');
+            return redirect()->route('category-maps.index')->withStatus('Berhasil Menghapus Data');
         } catch (Exception $e) {
             return redirect()->back()->withError('Terdapat Kesalahan', $e);
         } catch (\Illuminate\Database\QueryException $e) {

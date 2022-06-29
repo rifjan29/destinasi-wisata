@@ -9,17 +9,18 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <strong>{{ ucwords(str_replace('-',' ',Request::segment(2))) }}</strong>
+                                <strong>Category Events</strong>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="p-4">
-                                <form action="{{ route('category-events.store') }}" method="POST">
+                                <form action="{{ route('category-events.update',$data->id) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
                                             <label for="">Nama</label>
-                                            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Kategori">
+                                            <input type="text" name="nama" value="{{ old('name', $data->name) }}" class="form-control @error('nama') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Kategori">
                                             @error('nama')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}.
@@ -28,7 +29,7 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="">Keterangan</label>
-                                            <textarea name="keterangan" id="keterangan" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Masukkan Keterangan" cols="30" rows="10"></textarea>
+                                            <textarea name="keterangan" id="keterangan" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Masukkan Keterangan" cols="30" rows="10">{{ old('keterangan',$data->keterangan) }}</textarea>
                                             @error('keterangan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}.
@@ -54,10 +55,8 @@
                                                     </div>
                                                 @enderror
                                             </div>
-
                                         </div>
                                     </div>
-
                             </div>
                         </div>
                         <div class="card-footer p-4">

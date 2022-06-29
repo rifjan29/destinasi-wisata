@@ -13,9 +13,10 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('backoffice') }}">
                             <i class="fas fa-tachometer-alt"></i>
-                            <span class="bot-line"></span>Dashboard</a>
+                            <span class="bot-line"></span>Dashboard
+                        </a>
                     </li>
                     <li class="has-sub">
                         <a href="#">
@@ -27,26 +28,18 @@
                                 <a href="{{ route('category-events.index') }}">Category Event</a>
                             </li>
                             <li>
-                                <a href="index2.html">Category Destination</a>
+                                <a href="{{ route('category-destinasi.index') }}">Category Destination</a>
                             </li>
                             <li>
-                                <a href="index3.html">Category Tourist Map</a>
+                                <a href="{{ route('category-maps.index') }}">Category Tourist Map</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="has-sub">
-                        <a href="#">
-                            <i class="fas fa-building"></i>Event
-                            <span class="bot-line"></span>
+                    <li>
+                        <a href="{{ route('events.index') }}">
+                            <i class="fas fa-building"></i>
+                            <span class="bot-line"></span>Events
                         </a>
-                        <ul class="header3-sub-list list-unstyled">
-                            <li>
-                                <a href="index.html">Data English</a>
-                            </li>
-                            <li>
-                                <a href="index2.html">Data Indonesian</a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="has-sub">
                         <a href="#">
@@ -145,7 +138,7 @@
                                     <a href="{{ route('category-events.index') }}">Category Event</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Category Destination</a>
+                                    <a href="{{ route('category-destinasi.index') }}">Category Destination</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Category Tourist Map</a>

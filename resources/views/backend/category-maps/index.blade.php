@@ -10,9 +10,9 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <strong>Category Events</strong>
+                                <strong>{{ ucwords(str_replace('-',' ',Request::segment(2))) }} </strong>
                                 <div>
-                                    <a href="{{ route('category-events.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+                                    <a href="{{ route('category-maps.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
                                 </div>
                             </div>
                         </div>
@@ -37,10 +37,10 @@
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>
                                                 <td>
                                                     <div class="table-data-feature d-flex justify-content-start">
-                                                        <a href="{{ route('category-events.edit',$item->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="{{ route('category-maps.edit',$item->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </a>
-                                                        <form action="{{ route('category-events.destroy',$item->id) }}" method="POST">
+                                                        <form action="{{ route('category-maps.destroy',$item->id) }}" method="POST">
                                                             @method('delete')
                                                             @csrf
                                                             <button type="submit" onclick="return confirm('Hapus Data ?')" class="item" id="delete" data-id="{{ $item->id }}" data-toggle="modal" data-placement="top" title="Delete" data-target="#exampleModal">
@@ -52,7 +52,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="4" align="center" >Tidak ada data</td>
+                                                <td colspan="5" align="center" >Tidak ada data</td>
                                             </tr>
                                         @endforelse
 

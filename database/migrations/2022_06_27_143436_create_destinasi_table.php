@@ -24,7 +24,7 @@ class CreateDestinasiTable extends Migration
             $table->tinyInteger('kab_id');
             $table->tinyInteger('kec_id');
             $table->tinyInteger('desa_id');
-            $table->boolean('status',true);
+            $table->enum('status',['id','en']);
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\v1\Backend as Backend;
+use App\Http\Controllers\v1\Backend\EventController;
 use App\Http\Controllers\v1\Frontend as Frontend;
 use Illuminate\Support\Facades\Route;
 
@@ -29,11 +30,13 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('backoffice')->group(function () {
         Route::get('/',[Backend\BerandaController::class,'index'])->name('backoffice');
         Route::get('user',[Backend\UserController::class,'index'])->name('user.index');
+        // Route::get('events/{lang}', [EventController::class, 'index'])->name('events.data');
         Route::resource('events', Backend\EventController::class);
         Route::resource('category-events', Backend\CategoryEventController::class);
         Route::resource('destinasi', Backend\DestinasiController::class);
         Route::resource('category-destinasi', Backend\CategoryDestinasiController::class);
         Route::resource('peta-wisata', Backend\PetaWisataController::class);
+        Route::resource('category-maps',Backend\CategoryMapsController::class);
         // Route::get('tentang-kami', Frontend\TentangKamiController::class,'index')->name('backoffice.tentang-kami');
     });
 });

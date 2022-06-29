@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -12,9 +13,22 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->param['parentMenu'] = 'Dashboard';
+        $this->param['current'] = 'Dashboard';
+        $this->param['route'] = 'backoffice';
+    }
+
     public function index()
     {
-        //
+        $this->param['pageTitle'] = 'Semua Data';
+        $this->param['routeList'] = 'events.index';
+        $this->param['data'] = Event::select('event.*','kategori_event.*')
+                                    ->join('kategori_event','kategori_event.id','event.kategori_event_id')
+                                    ->get();
+
+        return view('backend.event.index',$this->param);
     }
 
     /**
@@ -24,7 +38,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $this->param['pageTitle'] = 'Tambah Data';
+        $this->param['routeList'] = 'events.index';
+
+        return view('backend.event.create',$this->param);
     }
 
     /**

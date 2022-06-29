@@ -21,7 +21,7 @@ class CreateEventTable extends Migration
             $table->binary('deskripsi');
             $table->string('photos')->nullable();
             $table->date('waktu');
-            $table->boolean('status',true);
+            $table->enum('status',['id','en']);
             $table->timestamps();
         });
     }

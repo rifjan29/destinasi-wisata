@@ -20,7 +20,7 @@ class CreateMapsTable extends Migration
             $table->string('slug');
             $table->text('maps');
             $table->text('keterangan');
-            $table->boolean('status',true);
+            $table->enum('status',['id','en']);
             $table->timestamps();
         });
     }
