@@ -316,7 +316,7 @@ section {
 }
 
 .main-content {
-    padding-top: 116px;
+    /* padding-top: 116px; */
     min-height: 100vh;
 }
 
@@ -565,7 +565,18 @@ section {
     line-height: 40px;
     font-size: 14px;
 }
-
+/* button  */
+.btn-primary {
+    background-color: #023e8a;
+    border: 1px solid #03045e;
+}
+.btn-success{
+    background-color: #0c7e78;
+}
+.btn-success:hover{
+    background-color: #56ab91;
+    border: 1px solid #56ab91;
+}
 /*Page Loader*/
 .page-loader {
     background: #f8f8f8;

@@ -8,7 +8,7 @@
         <section class="banner-area" id="home">
            @include('layouts.frontend.partials.navbar')
         </section>
-
+        
         @yield('content')
 
         @include('layouts.frontend.partials.footer')

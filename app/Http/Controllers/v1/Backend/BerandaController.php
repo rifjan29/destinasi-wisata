@@ -13,6 +13,7 @@ class BerandaController extends Controller
     {
         $this->param['parentMenu'] = 'Backoffice';
         $this->param['current'] = 'Dashboard';
+        $this->param['route'] = 'backoffice';
     }
     public function index()
     {

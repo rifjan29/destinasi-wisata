@@ -19,12 +19,12 @@
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Master
+                            <i class="fas fa-bookmark"></i>Master
                             <span class="bot-line"></span>
                         </a>
                         <ul class="header3-sub-list list-unstyled">
                                 <li>
-                                <a href="index.html">Category Event</a>
+                                <a href="{{ route('category-events.index') }}">Category Event</a>
                             </li>
                             <li>
                                 <a href="index2.html">Category Destination</a>
@@ -36,7 +36,7 @@
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Event
+                            <i class="fas fa-building"></i>Event
                             <span class="bot-line"></span>
                         </a>
                         <ul class="header3-sub-list list-unstyled">
@@ -50,7 +50,7 @@
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Destination
+                            <i class="fas fa-file-alt"></i>Destination
                             <span class="bot-line"></span>
                         </a>
                         <ul class="header3-sub-list list-unstyled">
@@ -64,7 +64,7 @@
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Tourist Map
+                            <i class="fas fa-hotel"></i>Tourist Map
                             <span class="bot-line"></span>
                         </a>
                         <ul class="header3-sub-list list-unstyled">
@@ -139,10 +139,10 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Master</a>
+                                <i class="fas fa-bookmark"></i>Master</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Category Event</a>
+                                    <a href="{{ route('category-events.index') }}">Category Event</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Category Destination</a>
@@ -154,7 +154,7 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Event</a>
+                                <i class="fas fa-building"></i>Event</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="index.html">Data English</a>
@@ -166,7 +166,7 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Destination</a>
+                                <i class="fas fa-file-alt"></i>Destination</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="index.html">Data English</a>
@@ -178,7 +178,7 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Tourist Map</a>
+                                <i class="fas fa-hotel"></i>Tourist Map</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="index.html">Data English</a>

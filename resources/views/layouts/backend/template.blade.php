@@ -23,6 +23,9 @@
         <!-- PAGE CONTENT-->
         <div class="page-content--bgf7">
             @include('layouts.backend._partials.breadcumb')
+            <div class="container">
+                @include('layouts.backend._partials.notif')
+            </div>
 
             @yield('content')
 
@@ -47,11 +50,21 @@
     <script src="{{ asset('') }}backend/vendor/circle-progress/circle-progress.min.js"></script>
     <script src="{{ asset('') }}backend/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="{{ asset('') }}backend/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="{{ asset('') }}backend/vendor/select2/select2.min.js">
-    </script>
+    <script src="{{ asset('') }}backend/vendor/select2/select2.min.js"></script>
+    {{-- datatable --}}
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js
+    "></script>
 
     <!-- Main JS-->
     <script src="{{ asset('') }}backend/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
     @stack('js')
 </body>
 

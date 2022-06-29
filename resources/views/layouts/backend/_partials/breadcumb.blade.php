@@ -7,14 +7,19 @@
                     <div class="au-breadcrumb-left">
                         <span class="au-breadcrumb-span">You are here:</span>
                         <ul class="list-unstyled list-inline au-breadcrumb__list">
-                            <li class="list-inline-item active">
-                                <a @if(Request::segment(1) != 'backoffice') onclick="window.history.back()" @endif >
-                                    @if(Request::segment(1)!='backoffice') <span class="fa fa-arrow-left btn-rgb-primary fa-sm p-2 "></span> @endif </span>
-                                </a>
+                            <li class="list-inline-item ">
+                                <a href="{{$parentMenu ? route($route) : '#'}}"> {{  ucwords($parentMenu) }}</a>
+                            </li>
+                            @if (Request::segment(2))
+                            <li class="list-inline-item seprate">
+                                <span>/</span>
                             </li>
                             <li class="list-inline-item">
-                                {{ ucwords(str_replace('-',' ',Request::segment(1))) }}
+                                <a href="{{ route($routeList) }}">
+                                    {{ ucwords(str_replace('-',' ',Request::segment(2))) }}
+                                </a>
                             </li>
+                            @endif
                             <li class="list-inline-item seprate">
                                 <span>/</span>
                             </li>
