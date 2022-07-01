@@ -13,6 +13,7 @@
     <title>Dashboard 3</title>
 
     @include('layouts.backend._partials.head')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
 </head>
 
@@ -34,6 +35,7 @@
     </div>
     <!-- Jquery JS-->
     <script src="{{ asset('') }}backend/vendor/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <!-- Bootstrap JS-->
     <script src="{{ asset('') }}backend/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="{{ asset('') }}backend/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -55,14 +57,27 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js
-    "></script>
-
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <!-- Main JS-->
     <script src="{{ asset('') }}backend/js/main.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+        });
+        $('#summernote').summernote({
+            placeholder: 'Masukkan Deskripsi',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                [ 'style', [ 'style' ] ],
+                [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+                [ 'fontname', [ 'fontname' ] ],
+                [ 'fontsize', [ 'fontsize' ] ],
+                [ 'color', [ 'color' ] ],
+                [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+                [ 'table', [ 'table' ] ],
+            ]
         });
     </script>
     @stack('js')

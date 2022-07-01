@@ -34,13 +34,13 @@
                                         @forelse ($data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>
-                                                    <img src="" alt="">
+                                                <td class="w-25">
+                                                    <img src="{{ asset('img/events/'.$item->photos) }}" alt="" class="w-25 img-fluid">
                                                 </td>
                                                 <td>{{ ucwords( $item->title ) }}</td>
-                                                <td>{{ ucwords( $item->deskripsi ) }}</td>
+                                                <td>{!! $item->deskripsi !!}</td>
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>
-                                                <td>{{ date('Y-m-d',$item->waktu) }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($item->waktu)); }}</td>
                                                 <td>
                                                     <div class="table-data-feature d-flex justify-content-start">
                                                         <a href="{{ route('events.edit',$item->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">

@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="p-4">
-                                <form action="{{ route('category-events.store') }}" method="POST">
+                                <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
@@ -35,7 +35,16 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="col-md-12 mb-3">
+                                        <div class="col md-6 mb-3">
+                                            <label for="">Kategori Event</label>
+                                            <select name="kategori_event" id="" class="form-control">
+                                                <option value=""> --Pilih Kategori-- </option>
+                                                @foreach ($data as $item)
+                                                    <option value="{{ $item->id }}">{{ ucwords( $item->name ) }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
                                             <label for="">Waktu</label>
                                             <input type="date" name="waktu" class="form-control @error('waktu') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Waktu">
                                             @error('waktu')
@@ -66,12 +75,23 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="">Foto</label>
-                                            <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Foto">
-                                            @error('foto')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}.
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="photos-preview h-100 rounded" style="background-color: #e5e5e5">
+                                                        <div class=" ">
+                                                            <img src="" class="img-fluid rounded d-flex align-items-center " id="photosPreview" alt="Foto Pengguna">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            @enderror
+                                                <div class="col-md-8">
+                                                    <input type="file" id="photos" name="foto" class="form-control @error('foto') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Foto">
+                                                    @error('foto')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}.
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -95,30 +115,19 @@
 <!-- END PAGE CONTAINER-->
 @endsection
 @push('js')
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            placeholder: 'Masukkan Deskripsi...',
-            tabsize: 2,
-            height: 150,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']],
-                ['height', ['height']],
-            ],
-        });
+<script>
+    $(document).ready(() => {
+        $('#photos').change(function () {
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    $('#photosPreview')
+                    .attr("src",event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        })
     });
 </script>
 @endpush
