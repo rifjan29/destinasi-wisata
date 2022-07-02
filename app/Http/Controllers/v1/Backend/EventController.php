@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Models\CategoryEvent;
 use App\Models\Event;
 use Exception;
@@ -29,7 +30,7 @@ class EventController extends Controller
     {
         $this->param['pageTitle'] = 'Semua Data';
         $this->param['routeList'] = 'events.index';
-        $this->param['data'] = Event::select('event.*','kategori_event.*')
+        $this->param['data'] = Event::select('event.*','kategori_event.id as id_kategori_event','kategori_event.name')
                                     ->join('kategori_event','kategori_event.id','event.kategori_event_id')
                                     ->get();
 
@@ -111,7 +112,11 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->param['pageTitle'] = 'Tambah Data';
+        $this->param['routeList'] = 'events.index';
+        $this->param['data_kategori'] = CategoryEvent::select('id','name')->get();
+        $this->param['data'] = Event::find($id);
+        return view('backend.event.edit',$this->param);
     }
 
     /**
@@ -123,7 +128,47 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'kategori_event' => 'required',
+            'waktu' => 'required',
+            'lang' => 'required',
+        ]);
+
+        try {
+            $slug = Str::slug($request->get('judul'));
+            $photos = $request->file('foto');
+            $filename = date('His') . '.' . $photos->getClientOriginalExtension();
+            $path = public_path('img/events');
+
+            $update = Event::findOrFail($id);
+
+            $update->kategori_event_id = $request->get('kategori_event');
+            $update->title = $request->get('judul');
+            $update->slug = $slug;
+            $update->deskripsi = $request->get('deskripsi');
+            $update->waktu = $request->get('waktu');
+            $update->status = $request->get('lang');
+            if (isset($photos)) {
+                $path_current = public_path() . '/img/events/';
+                $file_old = $path_current . $update->photos;
+                if (unlink($file_old)) {
+                    if ($photos->move($path, $filename)) {
+                        $update->photos = $filename;
+                    }else{
+                        return redirect()->back('events.create')->withError('Terjadi kesalahan.');
+                    }
+                }
+
+            }
+            $update->update();
+            return redirect()->route('events.index')->withStatus('Berhasil mengganti data.');
+        } catch (Exception $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        } catch (QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        }
     }
 
     /**
@@ -134,6 +179,19 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $delete = Event::find($id);
+            $img_path = public_path().'/img/events/'.$delete->photos;
+            if (File::delete($img_path)) {
+                $delete->delete();
+            }
+            return redirect()->route('events.index')->withStatus('Berhasil Menghapus Data');
+        } catch (Exception $e) {
+            return $e;
+            return redirect()->back()->withError('Terdapat Kesalahan', $e);
+        } catch (\Illuminate\Database\QueryException $e) {
+            return $e;
+            return redirect()->back()->withError('Terdapat Kesalahan', $e);
+        }
     }
 }
