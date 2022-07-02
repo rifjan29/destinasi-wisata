@@ -9,12 +9,12 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <strong>{{ ucwords(str_replace('-',' ',Request::segment(2))) }}</strong>
+                                <strong>Category Events</strong>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="p-4">
-                                <form action="{{ route('category-maps.update',$data->id) }}" method="POST">
+                                <form action="{{ route('category-events.update',$data->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-row">
@@ -39,13 +39,13 @@
                                         <div class="col-md-12 mb-3 ">
                                             <label for="">Pilihan Bahasa</label>
                                             <div class="form-check">
-                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios1" value="id" {{ $data->status == 'id' ? 'checked' : '' }}>
+                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios1" value="id">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                   Indonesia
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios2" value="en" {{ $data->status == 'en' ? 'checked' : '' }}>
+                                                <input class="form-check-input @error('lang') is-invalid @enderror" type="radio" name="lang" id="exampleRadios2" value="en">
                                                 <label class="form-check-label" for="exampleRadios2">
                                                   Inggris
                                                 </label>
@@ -55,10 +55,8 @@
                                                     </div>
                                                 @enderror
                                             </div>
-
                                         </div>
                                     </div>
-
                             </div>
                         </div>
                         <div class="card-footer p-4">

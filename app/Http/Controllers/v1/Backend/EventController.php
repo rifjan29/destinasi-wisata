@@ -82,7 +82,7 @@ class EventController extends Controller
             if ($photos->move($path, $filename)) {
                 $add->photos = $filename;
             }else{
-                return redirect()->back('events.create')->withError('Terjadi kesalahan.');
+                return redirect()->back()->withError('Terjadi kesalahan.');
             }
             $add->save();
             return redirect()->route('events.index')->withStatus('Berhasil menyimpan data.');
@@ -138,8 +138,7 @@ class EventController extends Controller
 
         try {
             $slug = Str::slug($request->get('judul'));
-            $photos = $request->file('foto');
-            $filename = date('His') . '.' . $photos->getClientOriginalExtension();
+
             $path = public_path('img/events');
 
             $update = Event::findOrFail($id);
@@ -150,14 +149,16 @@ class EventController extends Controller
             $update->deskripsi = $request->get('deskripsi');
             $update->waktu = $request->get('waktu');
             $update->status = $request->get('lang');
-            if (isset($photos)) {
+            if ($request->file('foto') != null) {
+                $photos = $request->file('foto');
+                $filename = date('His') . '.' . $photos->getClientOriginalExtension();
                 $path_current = public_path() . '/img/events/';
                 $file_old = $path_current . $update->photos;
                 if (unlink($file_old)) {
                     if ($photos->move($path, $filename)) {
                         $update->photos = $filename;
                     }else{
-                        return redirect()->back('events.create')->withError('Terjadi kesalahan.');
+                        return redirect()->back()->withError('Terjadi kesalahan.');
                     }
                 }
 
@@ -187,10 +188,8 @@ class EventController extends Controller
             }
             return redirect()->route('events.index')->withStatus('Berhasil Menghapus Data');
         } catch (Exception $e) {
-            return $e;
             return redirect()->back()->withError('Terdapat Kesalahan', $e);
         } catch (\Illuminate\Database\QueryException $e) {
-            return $e;
             return redirect()->back()->withError('Terdapat Kesalahan', $e);
         }
     }

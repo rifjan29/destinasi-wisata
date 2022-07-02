@@ -41,33 +41,17 @@
                             <span class="bot-line"></span>Events
                         </a>
                     </li>
-                    <li class="has-sub">
-                        <a href="#">
-                            <i class="fas fa-file-alt"></i>Destination
-                            <span class="bot-line"></span>
+                    <li>
+                        <a href="{{ route('destinasi.index') }}">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="bot-line"></span>Destination
                         </a>
-                        <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                <a href="index.html">Data English</a>
-                            </li>
-                            <li>
-                                <a href="index2.html">Data Indonesian</a>
-                            </li>
-                        </ul>
                     </li>
-                    <li class="has-sub">
-                        <a href="#">
-                            <i class="fas fa-hotel"></i>Tourist Map
-                            <span class="bot-line"></span>
+                    <li>
+                        <a href="{{ route('peta-wisata.index') }}">
+                            <i class="fas fa-hotel"></i>
+                            <span class="bot-line"></span>Tourist Map
                         </a>
-                        <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                <a href="index.html">Data English</a>
-                            </li>
-                            <li>
-                                <a href="index2.html">Data Indonesian</a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>

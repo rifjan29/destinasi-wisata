@@ -4,16 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategoriMapTable extends Migration
+class CreateKategoriMapsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
-        Schema::create('kategori_map', function (Blueprint $table) {
+        Schema::create('kategori_maps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
@@ -30,6 +31,6 @@ class CreateKategoriMapTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori_map');
+        Schema::dropIfExists('kategori_maps');
     }
 }

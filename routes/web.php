@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\v1\Backend as Backend;
+use App\Http\Controllers\v1\Backend\DestinasiController;
 use App\Http\Controllers\v1\Backend\EventController;
 use App\Http\Controllers\v1\Frontend as Frontend;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ Route::get('tourist-map/{slug}',[Frontend\PetaWisataController::class,'detail'])
 // Route::get('about-us',[Frontend\TentangKamiController::class,'index'])->name('tentang-kami');
 
 // backend
+Route::get('getkab',[DestinasiController::class,"getKabupaten"]);
+Route::get('getkec',[DestinasiController::class,"getKecamatan"]);
 Route::middleware(['auth'])->group(function () {
     Route::prefix('backoffice')->group(function () {
         Route::get('/',[Backend\BerandaController::class,'index'])->name('backoffice');

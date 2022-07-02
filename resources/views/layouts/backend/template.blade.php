@@ -64,6 +64,7 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+            $('.select2').select2();
         });
         $('#summernote').summernote({
             placeholder: 'Masukkan Deskripsi',
@@ -80,6 +81,7 @@
             ]
         });
     </script>
+    <script src="{{ asset('') }}backend/js/custom.js"></script>
     @stack('js')
 </body>
 

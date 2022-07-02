@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMapsTable extends Migration
+class CreateBannerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateMapsTable extends Migration
      */
     public function up()
     {
-        Schema::create('maps', function (Blueprint $table) {
+        Schema::create('banner', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_map_id')->constrained('kategori_map');
-            $table->string('name');
-            $table->string('slug');
-            $table->text('maps');
-            $table->text('keterangan');
-            $table->enum('status',['id','en']);
+            $table->string('banner')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateMapsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maps');
+        Schema::dropIfExists('banner');
     }
 }

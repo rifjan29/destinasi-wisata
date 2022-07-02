@@ -23,3 +23,17 @@
 <link href="{{ asset('') }}backend/css/theme.css" rel="stylesheet" media="all">
 
 @stack('css')
+<style>
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #ced4da;
+        height: calc(2.25rem + 2px);
+        padding: .375rem .75rem;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: inherit;
+        color: inherit;
+        padding: 0px;
+    }
+
+</style>
