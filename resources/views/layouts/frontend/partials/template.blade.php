@@ -5,10 +5,11 @@
 </head>
     <body>
         <!-- start banner Area -->
-        <section class="banner-area" id="home">
+        <section class="generic-banner relative" id="home">
            @include('layouts.frontend.partials.navbar')
+           @yield('content-detail')
         </section>
-        
+
         @yield('content')
 
         @include('layouts.frontend.partials.footer')
@@ -24,5 +25,6 @@
         <script src="{{ asset('') }}frontend/js/jquery.counterup.min.js"></script>
         <script src="{{ asset('') }}frontend/js/waypoints.min.js"></script>
         <script src="{{ asset('') }}frontend/js/main.js"></script>
+        @stack('js')
     </body>
 </html>

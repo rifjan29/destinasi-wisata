@@ -34,10 +34,12 @@ class DestinasiController extends Controller
         $this->param['data'] = Destinasi::select('destinasi.*',
                                             'ro_province.province_id','ro_province.province',
                                             'ro_subdistrict.subdistrict_id','ro_subdistrict.type','ro_subdistrict.subdistrict_name',
-                                            'ro_city.city_id','ro_city.city_name')
+                                            'ro_city.city_id','ro_city.city_name',
+                                            'kategori_destinasi.id','kategori_destinasi.name')
                                         ->join('ro_province','ro_province.province_id','destinasi.provinsi_id')
                                         ->join('ro_city','ro_city.city_id','destinasi.kab_id')
                                         ->join('ro_subdistrict','ro_subdistrict.subdistrict_id','destinasi.kec_id')
+                                        ->join('kategori_destinasi','kategori_destinasi.id','destinasi.kategori_destinasi_id')
                                         ->get();
 
         return view('backend.destinasi.index',$this->param);

@@ -24,7 +24,7 @@
                                             <th>#</th>
                                             <th>Foto</th>
                                             <th>Judul</th>
-                                            <th>Deskripsi</th>
+                                            {{-- <th>Deskripsi</th> --}}
                                             <th>Bahasa</th>
                                             <th>Waktu</th>
                                             <th>Action</th>
@@ -38,7 +38,7 @@
                                                     <img src="{{ asset('img/events/'.$item->photos) }}" alt="" class="w-25 img-fluid">
                                                 </td>
                                                 <td>{{ ucwords( $item->title ) }}</td>
-                                                <td>{!! $item->deskripsi !!}</td>
+                                                {{-- <td>{!! $item->deskripsi !!}</td> --}}
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>
                                                 <td>{{ date('d-m-Y', strtotime($item->waktu)); }}</td>
                                                 <td>

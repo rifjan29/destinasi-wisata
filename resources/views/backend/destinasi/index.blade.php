@@ -24,6 +24,7 @@
                                             <th>#</th>
                                             <th>Foto</th>
                                             <th>Judul</th>
+                                            <th>Kategori</th>
                                             <th>Deskripsi</th>
                                             <th>Bahasa</th>
                                             <th>Alamat</th>
@@ -39,6 +40,7 @@
                                                     <img src="{{ asset('img/destinasi/'.$item->photos) }}" alt="" class="w-100 img-fluid">
                                                 </td>
                                                 <td>{{ ucwords( $item->title ) }}</td>
+                                                <td>{{ ucwords( $item->name) }}</td>
                                                 <td>{!! $item->deskripsi !!}</td>
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>
                                                 <td style="width: 10%">{{ $item->province.' , '.$item->type.' '.$item->subdistrict_name.' , '.$item->city_name }}</td>

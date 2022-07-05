@@ -32,7 +32,7 @@ $(document).ready(function(){
   // });
 
 
-    //  Counter Js 
+    //  Counter Js
 
     $('.counter').counterUp({
         delay: 10,
@@ -49,7 +49,7 @@ $(document).ready(function(){
 
     $('.active-works-carousel').owlCarousel({
         items:1,
-        loop:true,
+        loop:false,
         margin: 100,
         dots: true,
         autoplay:true,
@@ -73,7 +73,7 @@ $(document).ready(function(){
         autoplay:true,
         nav:true,
         navText: ["<span class='lnr lnr-arrow-up'></span>",
-        "<span class='lnr lnr-arrow-down'></span>"],        
+        "<span class='lnr lnr-arrow-down'></span>"],
             responsive: {
             0: {
                 items: 1
@@ -92,8 +92,9 @@ $(document).ready(function(){
     });
 
 
+var count = $('.active-blog-slider').attr('data-id');
 $('.active-blog-slider').owlCarousel({
-        loop: true,
+        loop: count > 1 ? true : false,
         dots: true,
         items: 1,
         autoplay: true,
@@ -111,8 +112,8 @@ $('.active-blog-slider').owlCarousel({
     .on('click',function(event) {
     // On-page links
     if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
       location.hostname == this.hostname
     ) {
       // Figure out element to scroll to
@@ -142,6 +143,6 @@ $('.active-blog-slider').owlCarousel({
 
       $(document).ready(function() {
           $('#mc_embed_signup').find('form').ajaxChimp();
-      });   
+      });
 
  });

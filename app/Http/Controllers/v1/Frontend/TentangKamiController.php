@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\v1\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Feedback;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class TentangKamiController extends Controller
@@ -14,7 +17,8 @@ class TentangKamiController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('pages.contact-us.index');
     }
 
     /**
@@ -35,7 +39,19 @@ class TentangKamiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $add = new Feedback;
+            $add->name = $request->get('name');
+            $add->email = $request->get('email');
+            $add->subject = $request->get('subject');
+            $add->message = $request->get('message');
+            $add->save();
+            return redirect()->back()->withStatus('Berhasil menambahkan data.');
+        } catch (Exception $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        } catch (QueryException $e){
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        }
     }
 
     /**

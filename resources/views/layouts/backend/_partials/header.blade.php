@@ -33,6 +33,9 @@
                             <li>
                                 <a href="{{ route('category-maps.index') }}">Category Tourist Map</a>
                             </li>
+                            <li>
+                                <a href="{{ route('banner.index') }}">Banner</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -53,13 +56,19 @@
                             <span class="bot-line"></span>Tourist Map
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('feedback-data.index') }}">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <span class="bot-line"></span>Feedback
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="header__tool">
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
-                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                            <img src="{{ asset('backend/images/icon/avatar-02.jpg') }}" alt="{{ Auth::user()->name }}" />
                         </div>
                         <div class="content">
                             <a class="js-acc-btn" href="#">{{ ucwords(Auth::user()->name) }}</a>
@@ -68,7 +77,7 @@
                             <div class="info clearfix">
                                 <div class="image">
                                     <a href="#">
-                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                        <img src="{{ asset('backend/images/icon/avatar-02.jpg') }}" alt="{{ Auth::user()->name }}" />
                                     </a>
                                 </div>
                                 <div class="content">
@@ -79,8 +88,19 @@
                                 </div>
                             </div>
                             <div class="account-dropdown__footer">
-                                <a href="#">
-                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                <div class="account-dropdown__item">
+                                    <a href="{{ route('user.index') }}">
+                                        <i class="zmdi zmdi-account"></i>Edit Account</a>
+                                </div>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                    </x-dropdown-link>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -111,7 +131,7 @@
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="chart.html">
+                            <a href="{{ route('backoffice') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li class="has-sub">
@@ -125,47 +145,25 @@
                                     <a href="{{ route('category-destinasi.index') }}">Category Destination</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Category Tourist Map</a>
+                                    <a href="{{ route('category-maps.index') }}">Category Tourist Map</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('banner.index') }}">Banner</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-building"></i>Event</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Data English</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Data Indonesian</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="{{ route('events.index') }}">
+                                <i class="fas fa-building"></i>Events</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                        <li>
+                            <a href="{{ route('destinasi.index') }}">
                                 <i class="fas fa-file-alt"></i>Destination</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Data English</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Data Indonesian</a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                        <li>
+                            <a href="{{ route('peta-wisata.index') }}">
                                 <i class="fas fa-hotel"></i>Tourist Map</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Data English</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Data Indonesian</a>
-                                </li>
-                            </ul>
                         </li>
-
                     </ul>
                 </li>
             </ul>
@@ -177,7 +175,7 @@
         <div class="account-wrap">
             <div class="account-item account-item--style2 clearfix js-item-menu">
                 <div class="image">
-                    <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                    <img src="{{ asset('backend/images/icon/avatar-02.jpg') }}" alt="{{ Auth::user()->name }}"/>
                 </div>
                 <div class="content">
                     <a class="js-acc-btn" href="#">{{ ucwords(Auth::user()->name) }}</a>

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -12,9 +17,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->param['parentMenu'] = 'Dashboard';
+        $this->param['current'] = 'Dashboard';
+        $this->param['route'] = 'backoffice';
+    }
+
     public function index()
     {
-        //
+        $this->param['pageTitle'] = 'Semua Data';
+        $this->param['routeList'] = 'events.index';
+
+        $this->param['data'] = User::find(Auth::user()->id);
+        return view('backend.user.index',$this->param);
     }
 
     /**
@@ -69,7 +85,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+        try {
+            $update = User::find($id);
+            $update->name = $request->get('name');
+            $update->email = $request->get('email');
+            $update->update();
+            return redirect()->route('user.index')->withStatus('Berhasil mengganti data.');
+        } catch (Exception $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        } catch (QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        }
     }
 
     /**
@@ -81,5 +111,23 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function editPassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'string|min:8|required_with:konfirmasiPassword|same:konfirmasiPassword',
+            'konfirmasiPassword' => 'min:8',
+        ]);
+        try {
+            $update = User::find(Auth::user()->id);
+            $update->password = Hash::make($request->get('password'));
+            $update->update();
+            return redirect()->route('user.index')->withStatus('Berhasil mengganti password');
+        } catch (Exception $e) {
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        } catch (QueryException $e){
+            return redirect()->back()->withError('Terjadi kesalahan.');
+        }
     }
 }
