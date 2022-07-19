@@ -17,8 +17,8 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
-                                            <label for="">Kategori</label>
-                                            <input type="text" name="" class="form-control" value="{{ $data->name }}" id="">
+                                            <label for="">Judul</label>
+                                            <input type="text" name="" class="form-control" value="{{ $data->title }}" id="" readonly>
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="">Maps</label>

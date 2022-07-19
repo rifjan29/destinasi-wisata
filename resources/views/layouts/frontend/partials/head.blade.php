@@ -18,9 +18,13 @@
 CSS
 ============================================= -->
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/linearicons.css">
-<link rel="stylesheet" href="{{ asset('') }}frontend/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+
+{{-- <link rel="stylesheet" href="{{ asset('') }}frontend/css/font-awesome.min.css"> --}}
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/bootstrap.css">
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/magnific-popup.css">
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/animate.min.css">
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/owl.carousel.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>
 <link rel="stylesheet" href="{{ asset('') }}frontend/css/main.css">

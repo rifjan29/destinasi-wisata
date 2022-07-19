@@ -13,10 +13,7 @@ class PetaWisataController extends Controller
     public function index()
     {
         $locale = App::currentLocale();
-        $data = PetaWisata::select('maps.*','kategori_maps.id as id_kategori_maps','kategori_maps.name','kategori_maps.slug as slug_kategori_maps','kategori_maps.keterangan')
-                            ->join('kategori_maps','maps.kategori_maps_id','kategori_maps.id')
-                            ->where('maps.status',$locale)
-                            ->orderBy('maps.id','DESC')
+        $data = PetaWisata::where('maps.status',$locale)
                             ->first();
         return view('pages.peta-wisata.index',compact('data'));
     }

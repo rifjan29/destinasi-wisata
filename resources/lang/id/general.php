@@ -11,7 +11,11 @@
         'menu' =>[
             'home' => 'Beranda',
             'event' => 'Acara',
-            'destinasi' => 'Destinasi',
+            'about' => 'Tentang Wisata',
+            'history' => 'Sejarah',
+            'facility' => 'Fasilitas',
+            'activity' => 'Aktivitas',
+            'gallery' => 'Galeri',
             'peta' => 'Peta Wisata',
             'contact' => 'Kontak Kami',
 
@@ -22,9 +26,13 @@
         ],
         'section_dua' => [
             'title' => 'Destinasi Wisata Alam mungkin bisa menjadi salah satu pilihan Anda untuk melepas penat di akhir pekan ini',
-            'text1' => 'Puncak Badean terletak di Desa Badean, Kecamatan Bangsalsari. Wisata alam ini baru diresmikan sebagai objek wisata oleh Pelaksana tugas Bupati Jember Abdul Muqit Arief pada Rabu, 14 Oktober lalu.',
-            'text2' => 'Masyarakat Jember yang ramah juga membuat point tambahan dari sisi pariwisata, tak jarang banyak turis dari manca negara yang senang mengunjungi kota Jember. Sama seperti di Yogyakarta yang setiap sudut kotanya menarik untuk di jelajahi, kota Jember memberikan pesona yang membuat para pelancong betah berlama-lama untuk berada di kota ini. Panasnya pantai, dinginnya udara di dataran rendah, wisata religi, kafe-kafe unik, alun-alun kota yang menarik dan wisata pendidikan juga dapat kalian temui di Kota Jember.',
-            'text3' => 'Diantara banyaknya pesona yang ada di Kota Jember, salah satunya adalah destinasi wisata alam Puncak Badean. Nah sob, kali ini penulis akan memberikan detail informasi dari tempat wisata Puncak Badean Jember ini spesial untuk sobat hiking.',
+            'text1' => '
+                Puncak Badean resmi berdiri pada September 2020 oleh Plt Bupati Kabupaten Jember,
+                Bapak Abdul Muqit Arief dan juga Kepala Desa. Pada tahun 2019, kawasan ini hanya berupa lahan
+                bengkok dan semula direncanakan menjadi kolam renang. Namun, proyek ini tertunda karena pandemi Covid-19.
+                Kemudian pada tahun 2020 pengelola objek wisata ini berinisiatif menjadikan kawasan ini sebagai tempat rekreasi. Oleh karena itu, tempat ini diubah sedemikian rupa sehingga pembangunan Puncak Badean selesai. Dan pada September 2020, peresmian wisata Puncak Badean dilakukan oleh program Kementerian Pariwisata dan Ekonomi Kreatif bertajuk Indonesia BISA (Bersih, Indah, Sehat, dan Aman). Puncak Badean merupakan salah satu upaya pemerintah untuk menghidupkan kembali perekonomian sektor pariwisata yang diharapkan dapat mendukung pendapatan ekonomi masyarakat setempat serta Pendapatan Asli Daerah.
+            ',
+
         ],
         'section_tiga' => [
             'title' => 'Acara Kita',

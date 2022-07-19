@@ -1,0 +1,15 @@
+*~
+.DS_Store
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+*.log
+/ignore/
+/ignored/
+/node_modules/
+/bower_components/
+/nbproject/
+.idea/
+prod/
+.icons.temp
+*.zip

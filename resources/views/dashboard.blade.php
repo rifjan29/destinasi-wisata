@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="statistic__item statistic__item--blue">
-                    <h2 class="number">{{ $countDestinasi }}</h2>
+                    <h2 class="number">{{ $countGaleri }}</h2>
                     <span class="desc">Destination</span>
                     <div class="icon">
                         <i class="zmdi zmdi-calendar-note"></i>

@@ -15,7 +15,7 @@ class CreateMapsTable extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_maps_id')->constrained('kategori_maps');
+            $table->text('title')->nullable();
             $table->text('peta_maps');
             $table->text('keterangan');
             $table->enum('status',['id','en']);

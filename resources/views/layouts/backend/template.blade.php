@@ -59,6 +59,9 @@
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <!-- Bootstrap-Iconpicker Bundle -->
+    <script src="{{ asset('fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js') }}"></script>
+
     <!-- Main JS-->
     <script src="{{ asset('') }}backend/js/main.js"></script>
     <script>

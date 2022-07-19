@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Destinasi;
 use App\Models\Event;
+use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -30,12 +31,7 @@ class HomeController extends Controller
                             ->orderBy('event.id','DESC')
                             ->take(3)
                             ->get();
-        $data_destinasi = Destinasi::select('destinasi.*','kategori_destinasi.id as id_kategori_destinasi','kategori_destinasi.name','kategori_destinasi.slug as slug_kategori_destinasi','kategori_destinasi.keterangan')
-                            ->join('kategori_destinasi','destinasi.kategori_destinasi_id','kategori_destinasi.id')
-                            ->where('destinasi.status',$locale)
-                            ->orderBy('destinasi.id','DESC')
-                            ->take(3)
-                            ->get();
-        return view('welcome',compact('data_banner','data_event','data_destinasi'));
+        $data_galeri = Galeri::where('status',$locale)->get();
+        return view('welcome',compact('data_banner','data_event','data_galeri'));
     }
 }

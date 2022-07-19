@@ -27,20 +27,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="">Kategori</label>
-                                            <select name="kategori_maps" id="" class="form-control @error('kategori_maps') is-invalid @enderror">
-                                                <option value=""> --Pilih Kategori-- </option>
-                                                @foreach ($data_kategori as $item)
-                                                    <option value="{{ $item->id }}" {{ $item->id == $data->kategori_maps_id ? 'selected' : '' }}>{{ ucwords( $item->name ) }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('kategori_maps')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}.
-                                                </div>
-                                            @enderror
-                                        </div>
+
                                         <div class="col-md-12 mb-3">
                                             {!! $data->peta_maps !!}
                                         </div>

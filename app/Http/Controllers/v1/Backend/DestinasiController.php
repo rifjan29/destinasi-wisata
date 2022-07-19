@@ -35,7 +35,7 @@ class DestinasiController extends Controller
                                             'ro_province.province_id','ro_province.province',
                                             'ro_subdistrict.subdistrict_id','ro_subdistrict.type','ro_subdistrict.subdistrict_name',
                                             'ro_city.city_id','ro_city.city_name',
-                                            'kategori_destinasi.id','kategori_destinasi.name')
+                                            'kategori_destinasi.id as id_kategori_destinasi','kategori_destinasi.name')
                                         ->join('ro_province','ro_province.province_id','destinasi.provinsi_id')
                                         ->join('ro_city','ro_city.city_id','destinasi.kab_id')
                                         ->join('ro_subdistrict','ro_subdistrict.subdistrict_id','destinasi.kec_id')
@@ -70,10 +70,10 @@ class DestinasiController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'id_provinsi' => 'required|not_in:0',
-            'id_kabupaten' => 'required|not_in:0',
-            'id_kecamatan' => 'required|not_in:0',
-            'alamat' => 'required',
+            // 'id_provinsi' => 'required|not_in:0',
+            // 'id_kabupaten' => 'required|not_in:0',
+            // 'id_kecamatan' => 'required|not_in:0',
+            // 'alamat' => 'required',
             'kategori_destinasi' => 'required|not_in:0',
             'lang' => 'required',
         ]);
@@ -89,10 +89,7 @@ class DestinasiController extends Controller
             $add->title = $request->get('judul');
             $add->slug = $slug;
             $add->deskripsi = $request->get('deskripsi');
-            $add->provinsi_id = $request->get('id_provinsi');
-            $add->kab_id = $request->get('id_kabupaten');
-            $add->kec_id = $request->get('id_kecamatan');
-            $add->alamat = $request->get('alamat');
+
             $add->status = $request->get('lang');
             if ($photos->move($path, $filename)) {
                 $add->photos = $filename;
@@ -102,10 +99,8 @@ class DestinasiController extends Controller
             $add->save();
             return redirect()->route('destinasi.index')->withStatus('Berhasil menyimpan data.');
         } catch (Exception $e) {
-            return $e;
             return redirect()->back()->withError('Terjadi kesalahan.');
         } catch (QueryException $e) {
-            return $e;
             return redirect()->back()->withError('Terjadi kesalahan.');
         }
     }
@@ -220,8 +215,10 @@ class DestinasiController extends Controller
             }
             return redirect()->route('destinasi.index')->withStatus('Berhasil Menghapus Data');
         } catch (Exception $e) {
+            return $e;
             return redirect()->back()->withError('Terdapat Kesalahan', $e);
         } catch (\Illuminate\Database\QueryException $e) {
+            return $e;
             return redirect()->back()->withError('Terdapat Kesalahan', $e);
         }
     }

@@ -24,6 +24,8 @@
         <script src="{{ asset('') }}frontend/js/slick.js"></script>
         <script src="{{ asset('') }}frontend/js/jquery.counterup.min.js"></script>
         <script src="{{ asset('') }}frontend/js/waypoints.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <script src="{{ asset('') }}frontend/js/main.js"></script>
         @stack('js')
     </body>

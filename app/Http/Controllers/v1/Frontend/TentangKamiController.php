@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\v1\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use App\Models\Feedback;
 use Exception;
+use Faker\Extension\Container;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
 
 class TentangKamiController extends Controller
 {
@@ -17,8 +21,9 @@ class TentangKamiController extends Controller
      */
     public function index()
     {
-
-        return view('pages.contact-us.index');
+        $locale = App::currentLocale();
+        $data = ContactUs::all();
+        return view('pages.contact-us.index',compact('data'));
     }
 
     /**

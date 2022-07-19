@@ -48,8 +48,8 @@ $(document).ready(function(){
     });
 
     $('.active-works-carousel').owlCarousel({
-        items:1,
-        loop:false,
+        items:2,
+        loop:true,
         margin: 100,
         dots: true,
         autoplay:true,
@@ -145,4 +145,18 @@ $('.active-blog-slider').owlCarousel({
           $('#mc_embed_signup').find('form').ajaxChimp();
       });
 
+
  });
+/*	end gallery */
+
+$(document).ready(function(){
+    //  // Customization example
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        infinite: false
+      });
+    // $(".fancybox").fancybox({
+    //     openEffect: "none",
+    //     closeEffect: "none"
+    // });
+});
+

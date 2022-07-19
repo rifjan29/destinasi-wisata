@@ -28,9 +28,7 @@ class PetaWisataController extends Controller
     {
         $this->param['pageTitle'] = 'Semua Data';
         $this->param['routeList'] = 'peta-wisata.index';
-        $this->param['data'] = PetaWisata::select('maps.*','kategori_maps.id as id_kategori_maps','kategori_maps.name')
-                                    ->join('kategori_maps','kategori_maps.id','maps.kategori_maps_id')
-                                    ->get();
+        $this->param['data'] = PetaWisata::all();
 
         return view('backend.peta-wisata.index',$this->param);
     }
@@ -44,7 +42,6 @@ class PetaWisataController extends Controller
     {
         $this->param['pageTitle'] = 'Tambah Data';
         $this->param['routeList'] = 'peta-wisata.index';
-        $this->param['data'] = KategoriMaps::select('id','name')->get();
         return view('backend.peta-wisata.create',$this->param);
     }
 
@@ -57,17 +54,13 @@ class PetaWisataController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kategori_maps' => 'required|not_in:0',
             'maps' => 'required',
             'lang' => 'required',
             'title' => 'required'
         ]);
         try {
-            $slug = Str::slug($request->get('title'));
             $add = new PetaWisata;
-            $add->kategori_maps_id = $request->get('kategori_maps');
             $add->title = $request->get('title');
-            $add->slug = $slug;
             $add->peta_maps = $request->get('maps');
             $add->keterangan = $request->get('keterangan') != null ? $request->get('keterangan') : '-';
             $add->status = $request->get('lang');
@@ -90,10 +83,7 @@ class PetaWisataController extends Controller
     {
         $this->param['pageTitle'] = 'Detail Data';
         $this->param['routeList'] = 'peta-wisata.index';
-        $this->param['data'] = PetaWisata::select('maps.*','kategori_maps.id as id_kategori_maps','kategori_maps.name')
-                                    ->join('kategori_maps','kategori_maps.id','maps.kategori_maps_id')
-                                    ->where('maps.id',$id)
-                                    ->first();
+        $this->param['data'] = PetaWisata::find($id);
         return view('backend.peta-wisata.detail',$this->param);
     }
 
@@ -108,7 +98,6 @@ class PetaWisataController extends Controller
         $this->param['pageTitle'] = 'Tambah Data';
         $this->param['routeList'] = 'peta-wisata.index';
         $this->param['data'] = PetaWisata::find($id);
-        $this->param['data_kategori'] = KategoriMaps::select('id','name')->get();
         return view('backend.peta-wisata.edit',$this->param);
     }
 
@@ -122,19 +111,15 @@ class PetaWisataController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'kategori_maps' => 'required|not_in:0',
             'lang' => 'required',
         ]);
         try {
-            $slug = Str::slug($request->get('title'));
 
             $update = PetaWisata::find($id);
-            $update->kategori_maps_id = $request->get('kategori_maps');
             if ($request->get('maps') != null && $request->get('maps') != ''){
                 $update->peta_maps = $request->get('maps');
             }
             $update->title = $request->get('title');
-            $update->slug = $slug;
             $update->keterangan = $request->get('keterangan') != null ? $request->get('keterangan') : '-';
             $update->status = $request->get('lang');
             $update->save();

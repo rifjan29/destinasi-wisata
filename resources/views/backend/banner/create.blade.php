@@ -17,6 +17,7 @@
                                 <form action="{{ route('banner.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
+
                                         <div class="col-md-12 mb-3">
                                             <label for="">Judul</label>
                                             <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="validationServer03" placeholder="Masukkan Judul">
@@ -118,6 +119,7 @@
                 reader.readAsDataURL(file);
             }
         })
+
     });
 </script>
 @endpush

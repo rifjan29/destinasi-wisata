@@ -11,7 +11,11 @@
         'menu' =>[
             'home' => 'HOME',
             'event' => 'Events',
-            'destinasi' => 'Destination',
+            'about' => 'About Destination',
+            'history' => 'History',
+            'facility' => 'Facility',
+            'activity' => 'Activity',
+            'gallery' => 'Gallery',
             'peta' => 'Tourist Map',
             'contact' => 'Contact Us',
 
@@ -22,9 +26,17 @@
         ],
         'section_dua' => [
             'title' => 'Natural Tourist Destinations might be one of your choices to unwind this weekend.',
-            'text1' => 'The peak of Badean is located in Badean Village, Bangsalsari District. This nature tourism has just been inaugurated as a tourist attraction by the Acting Regent of Jember Abdul Muqit Arief on Wednesday, October 14.',
-            'text2' => 'The friendly people of Jember also make an additional point in terms of tourism, not infrequently many tourists from abroad are happy to visit the city of Jember. Just like in Yogyakarta, where every corner of the city is interesting to explore, the city of Jember provides a charm that makes travelers feel at home for long in this city. You can find hot beaches, cold air in the lowlands, religious tourism, unique cafes, interesting town squares and educational tours in Jember City.',
-            'text3' => 'Among the many charms that exist in the city of Jember, one of which is the natural tourist destination of Puncak Badean. Well, friend, this time the author will provide detailed information from this Peak Badean Jember tourist spot specifically for hiking friends.'
+            'text1' => "Puncak Badean was officially established in September 2020 by the Acting Regent of Jember Regency,
+                Mr. Abdul Muqit Arief and also the Village Head. As of 2019, this area is only crooked land and was originally
+                planned to be a swimming pool. However, this project was delayed due to the Covid-19 pandemic. Then in 2020,
+                the administrator of this tourist attraction took the initiative to make this area a place of recreation.
+                Therefore, this place was changed in such a way until the construction of the Puncak Badean was completed.
+                And in September 2020, the establishment of the Puncak Badean tourist village was carried out by the program
+                of the Ministry of Tourism and Creative Economy program titled Indonesia BISA (Bersih, Indah, Sehat, dan Aman).
+                Puncak Badean is one of the government's efforts to revive the tourism sector economy which is expected to support
+                the economic income of the local community as well as Regional Original Income.
+            ",
+
         ],
         'section_tiga' => [
             'title' => 'Our Events',

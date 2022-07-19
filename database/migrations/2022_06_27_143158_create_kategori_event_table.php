@@ -17,7 +17,7 @@ class CreateKategoriEventTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->text('keterangan');
+            $table->text('keterangan')->nullable();
             $table->enum('status',['id','en']);
             $table->timestamps();
         });

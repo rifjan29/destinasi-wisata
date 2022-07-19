@@ -24,17 +24,24 @@
                             <span class="bot-line"></span>
                         </a>
                         <ul class="header3-sub-list list-unstyled">
-                                <li>
+                            <li>
                                 <a href="{{ route('category-events.index') }}">Category Event</a>
                             </li>
-                            <li>
-                                <a href="{{ route('category-destinasi.index') }}">Category Destination</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('category-maps.index') }}">Category Tourist Map</a>
-                            </li>
+
                             <li>
                                 <a href="{{ route('banner.index') }}">Banner</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('aktivitas.index') }}">Aktivitas</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('sejarah.index') }}">Sejarah</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('fasilitas.index') }}">Fasilitas</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact-us.index') }}">Kontak</a>
                             </li>
                         </ul>
                     </li>
@@ -45,15 +52,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('destinasi.index') }}">
+                        <a href="{{ route('galeri.index') }}">
                             <i class="fas fa-file-alt"></i>
-                            <span class="bot-line"></span>Destination
+                            <span class="bot-line"></span>Galeri
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('peta-wisata.index') }}">
                             <i class="fas fa-hotel"></i>
-                            <span class="bot-line"></span>Tourist Map
+                            <span class="bot-line"></span>Map
                         </a>
                     </li>
                     <li>
@@ -62,6 +69,7 @@
                             <span class="bot-line"></span>Feedback
                         </a>
                     </li>
+
                 </ul>
             </div>
             <div class="header__tool">
@@ -142,13 +150,19 @@
                                     <a href="{{ route('category-events.index') }}">Category Event</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('category-destinasi.index') }}">Category Destination</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('category-maps.index') }}">Category Tourist Map</a>
-                                </li>
-                                <li>
                                     <a href="{{ route('banner.index') }}">Banner</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('aktivitas.index') }}">Aktivitas</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sejarah.index') }}">Sejarah</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('fasilitas.index') }}">Fasilitas</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('contact-us.index') }}">Kontak</a>
                                 </li>
                             </ul>
                         </li>
@@ -157,8 +171,8 @@
                                 <i class="fas fa-building"></i>Events</a>
                         </li>
                         <li>
-                            <a href="{{ route('destinasi.index') }}">
-                                <i class="fas fa-file-alt"></i>Destination</a>
+                            <a href="{{ route('galeri.index') }}">
+                                <i class="fas fa-file-alt"></i>Galeri</a>
                         </li>
                         <li>
                             <a href="{{ route('peta-wisata.index') }}">

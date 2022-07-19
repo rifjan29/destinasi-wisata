@@ -23,7 +23,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Judul</th>
-                                            <th>Kategori</th>
                                             <th>Keterangan</th>
                                             <th>Bahasa</th>
                                             <th>Action</th>
@@ -34,7 +33,6 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ ucwords($item->title) }}</td>
-                                                <td>{{ $item->name }}</td>
 
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>{{ $item->status == 'en' ? 'Inggris' : 'Indonesia' }}</td>

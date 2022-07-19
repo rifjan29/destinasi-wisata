@@ -64,7 +64,7 @@ class CategoryDestinasiController extends Controller
             $add = new KategoriDestinasi;
             $add->name = $request->get('nama');
             $add->slug = $slug;
-            $add->keterangan = $request->get('keterangan');
+            $add->keterangan = $request->get('keterangan') != null ? $request->get('keterangan') : '-';
             $add->status = $request->get('lang');
             $add->save();
             return redirect()->route('category-destinasi.index')->withStatus('Berhasil menyimpan data.');
